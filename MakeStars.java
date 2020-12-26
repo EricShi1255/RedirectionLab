@@ -8,8 +8,14 @@ public static void main( String[]args ){
         Scanner eachline = new Scanner(line);
         while(eachline.hasNext()) {
             String word = eachline.next();
-            System.out.println(word);
+            String stars = "";
+            for (int i = 0; i < word.length(); i++) {
+                stars+="*";
+            } 
+            System.out.print(stars);
+            System.out.print(" ");
         }
+        System.out.println();
     }
     
 }
