@@ -61,7 +61,7 @@ public class PigLatin {
             hasvowel = true;
         }
         if (!isLetterOrDigit(s.charAt(s.length()-1))) {
-            haspunctuation = false;
+            haspunctuation = true;
         }
         //actual return values bloew
         if (s.charAt(0) < 'a' || s.charAt(0) > 'z') { //first char is not a letter --> leave it alone
@@ -92,7 +92,6 @@ public class PigLatin {
     }
 
     public static void main( String[]args ){
-        
         Scanner text = new Scanner( System.in );
         while(text.hasNextLine()) {
             String line = text.nextLine();
@@ -103,7 +102,5 @@ public class PigLatin {
             }
             System.out.println();
         };
-        
-        System.out.println(pigLatin(args[0]));
     }
 }
