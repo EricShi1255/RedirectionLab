@@ -48,14 +48,18 @@ public class PigLatin {
         String result = "";
         char end = s.charAt(s.length()-1);
         String rest;
-        String direst;
+        String direst = "";
         if (!isLetterOrDigit(end)) {
-            rest = s.substring(1,s.length()-1);
-            direst = s.substring(2,s.length()-1);
+            rest = s.substring(1,s.length()-2);
+            if (s.length() > 1) {
+            direst = s.substring(2,s.length()-2);
+            }
         }
         else {
             rest = s.substring(1);
+            if (s.length() > 1) { 
             direst = s.substring(2);
+            }
         }
         
         String[] digraphs = 
@@ -71,10 +75,10 @@ public class PigLatin {
         }
         String first = s.substring(0,1);
         if ( first.equals("a") || first.equals("e") || first.equals("i") || first.equals("o") || first.equals("u") ) {
-            s = s + "hay";
+            s = first + rest+ "hay";
             result = s;
         }
-        else if (!isdi){
+        else{
             result = rest+first+"ay"; 
         }
         if (!isLetterOrDigit(end)) {
@@ -84,6 +88,21 @@ public class PigLatin {
     }
 
     public static void main( String[]args ){
+        /*
+        Scanner text = new Scanner( System.in );
+        while(text.hasNextLine()) {
+            String line = text.nextLine();
+            Scanner eachline = new Scanner(line);
+            while(eachline.hasNext()) {
+                String word = eachline.next();
+                String piggy = pigLatinBest(word);
+                System.out.print(piggy);
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+        */
         System.out.println(pigLatinBest(args[0]));
+        System.out.println(isLetterOrDigit('!'));
     }
 }
