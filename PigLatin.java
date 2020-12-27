@@ -44,7 +44,6 @@ public class PigLatin {
     }
     public static String pigLatinBest(String s){
         s = s.toLowerCase();
-        boolean isdi = false;
         String result = "";
         char end = s.charAt(s.length()-1);
         String rest;
@@ -68,8 +67,7 @@ public class PigLatin {
             String di = s.substring(0,2);
             for (int i = 0; i < digraphs.length; i++) {
                 if (di.equals(digraphs[i])) {
-                    result = direst + di + "ay";
-                    isdi = true; 
+                    result = direst + di + "ay"; 
                 }
             }
         }
@@ -88,21 +86,18 @@ public class PigLatin {
     }
 
     public static void main( String[]args ){
-        /*
+        
         Scanner text = new Scanner( System.in );
         while(text.hasNextLine()) {
             String line = text.nextLine();
             Scanner eachline = new Scanner(line);
             while(eachline.hasNext()) {
                 String word = eachline.next();
-                String piggy = pigLatinBest(word);
-                System.out.print(piggy);
-                System.out.print(" ");
+                System.out.print(pigLatinBest(word) + " ");
             }
             System.out.println();
-        }
-        */
-        System.out.println(pigLatinBest(args[0]));
-        System.out.println(isLetterOrDigit('!'));
+        };x
+        
+        System.out.println(pigLatin(args[0]));
     }
 }
