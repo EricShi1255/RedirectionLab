@@ -77,9 +77,9 @@ public class PigLatin {
         }
         if (hasvowel) {
             if (haspunctuation) {
-                return (s.substring(1, s.length()-1)) + first + "hay" + end;
+                return first + (s.substring(1, s.length()-1)) + "hay" + end;
             }
-            return s.substring(1) + first + "hay";
+            return first + s.substring(1) + "hay";
         }
         else {
             if (haspunctuation) {
