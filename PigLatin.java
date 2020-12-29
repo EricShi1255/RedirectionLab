@@ -43,10 +43,10 @@ public class PigLatin {
     }
 
     public static String pigLatinBest(String s){
+        s = s.toLowerCase();
         boolean hasdigraph = false; //digraph first
         boolean hasvowel = false; //vowel first pos
         boolean haspunctuation = false;
-        s = s.toLowerCase();
         if (s.length() > 1) {
             String[] digraphs = 
             {"bl","br","ch","ck","cl","cr","dr","fl","fr","gh","gl","gr","ng","ph","pl","pr","qu","sc","sh","sk","sl","sm","sn","sp","st","sw","th","tr","tw","wh","wr"};
@@ -64,6 +64,7 @@ public class PigLatin {
             haspunctuation = true;
         }
         //actual return values bloew
+        
         if (s.charAt(0) < 'a' || s.charAt(0) > 'z') { //first char is not a letter --> leave it alone
             return s;
         }
@@ -96,11 +97,15 @@ public class PigLatin {
         while(text.hasNextLine()) {
             String line = text.nextLine();
             Scanner eachline = new Scanner(line);
+            String newline = "";
             while(eachline.hasNext()) {
                 String word = eachline.next();
-                System.out.print(pigLatinBest(word) + " ");
+                newline += pigLatinBest(word);
+                if (eachline.hasNext()) {
+                newline +=(" ");
+                }
             }
-            System.out.println();
-        };
+            System.out.println(newline);
+        }
     }
 }
